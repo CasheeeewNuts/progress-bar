@@ -18,7 +18,7 @@ int main() {
     // main routine
     for (int i = 0; i < PROGRESS_MAX; i++) {
         char percent[10];
-        sprintf(percent, "[%d/%d]", i + 1, PROGRESS_MAX);
+        sprintf(percent, " [%d/%d]", i + 1, PROGRESS_MAX);
 
         std::cerr << "\r" << progress_bar << percent;
 

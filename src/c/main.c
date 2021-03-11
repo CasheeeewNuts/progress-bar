@@ -22,7 +22,7 @@ int main(void) {
 
     // main routine
     for (int i = 0; i <= PERCENT_MAX; i += 1) {
-        fprintf(stderr, "\r%s[%d/%d]", progress_bar, i, PERCENT_MAX);
+        fprintf(stderr, "\r%s [%d/%d]", progress_bar, i, PERCENT_MAX);
 
         progress_bar[i] = '=';
         progress_bar[i + 1] = '>';
