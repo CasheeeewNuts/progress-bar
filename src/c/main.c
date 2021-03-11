@@ -13,10 +13,10 @@
 
 int main(void) {
     // declare string var
-    char progress_bar[MAX_LENGTH];
+    char progress_bar[MAX_LENGTH] = {'>'};
 
     // fill the empty string with spaces to 99 from 0
-    for (int i = 0; i < PERCENT_MAX; i++) {
+    for (int i = 1; i < PERCENT_MAX; i++) {
         progress_bar[i] = ' ';
     }
 
@@ -27,7 +27,7 @@ int main(void) {
         progress_bar[i] = '=';
         progress_bar[i + 1] = '>';
 
-        M_SLEEP(100);
+        M_SLEEP(10);
     }
     printf("\n");
 

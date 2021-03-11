@@ -13,7 +13,7 @@
 
 int main() {
     // declare string variable and fill the empty string with spaces to 99 from 0
-    std::string progress_bar(PROGRESS_MAX, ' ');
+    std::string progress_bar = '>' + std::string(PROGRESS_MAX - 1, ' ');
 
     // main routine
     for (int i = 0; i < PROGRESS_MAX; i++) {
