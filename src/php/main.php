@@ -1,21 +1,26 @@
 <?php
+//
+// Created by cashewnuts on 2021/03/11.
+//
 
 const PROGRESS_MAX = 100;
 
 function main()
 {
-    $progressBar = '>'.implode('', array_map(fn() => ' ', range(0, PROGRESS_MAX - 1)));
-
+    // main process
     for ($i = 0; $i < PROGRESS_MAX; $i++) {
-        fputs(STDERR, sprintf("\r%s [%d/%d]", $progressBar, $i + 1, PROGRESS_MAX));
-        $progressBar = preg_replace('/> /', '=>', $progressBar);
+        // declare progress bar
+        $progressBar = str_repeat("=", $i).'>'.str_repeat(' ', PROGRESS_MAX - ($i + 1));
 
+        // output to stderr
+        fputs(STDERR, sprintf("\r%s [%d/%d]", $progressBar, $i + 1, PROGRESS_MAX));
+
+        // sleep 10ms
         usleep(10000);
     }
+
+    // end process
     fputs(STDERR, "\n");
 }
 
-
-for ($i = 0; $i < 50; $i++):
-    main();
-endfor;
+main();

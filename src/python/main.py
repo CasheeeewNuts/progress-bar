@@ -8,14 +8,18 @@ import time
 
 def main():
     PROGRESS_MAX = 100
-    progress_bar = '>' + ' ' * (PROGRESS_MAX - 1)
 
     for i in range(0, PROGRESS_MAX):
+        # declare progress bar
+        progress_bar = '=' * i + '>' + ' ' * (PROGRESS_MAX - (i + 1))
+
+        # output to stderr
         print("\r{} [{}/{}]".format(progress_bar, i + 1, PROGRESS_MAX), file=sys.stderr, end='')
 
-        progress_bar = progress_bar.replace("> ", "=>", 1)
+        # sleep 10ms
         time.sleep(0.01)
 
+    print(file=sys.stderr)
 
 if __name__ == '__main__':
     main()

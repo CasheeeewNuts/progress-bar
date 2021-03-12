@@ -1,8 +1,10 @@
+//
+// Created by cashewnuts on 2021/03/11.
+//
+
 const PROGRESS_MAX = 100
 
 const main = () => {
-    let progressBar = '>' + Array(PROGRESS_MAX - 1).fill(' ').join('')
-
     let i = 0
     const timer = setInterval(() => {
         if (i >= PROGRESS_MAX) {
@@ -11,9 +13,10 @@ const main = () => {
             return
         }
 
+        const progressBar = '='.repeat(i) + '>' + ' '.repeat(PROGRESS_MAX - (i + 1))
+
         process.stderr.write(`\r${progressBar} [${i + 1}/100]`)
 
-        progressBar = progressBar.replace(/> /, '=>')
         i++
     }, 10)
 

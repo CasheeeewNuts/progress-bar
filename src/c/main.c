@@ -12,17 +12,12 @@
 #define M_SLEEP(x) usleep(x * 1000)
 
 int main(void) {
-    // declare string var
+    // declare progress bar string
     char progress_bar[MAX_LENGTH] = {'>'};
-
-    // fill the empty string with spaces to 99 from 0
-    for (int i = 1; i < PERCENT_MAX; i++) {
-        progress_bar[i] = ' ';
-    }
 
     // main routine
     for (int i = 0; i <= PERCENT_MAX; i += 1) {
-        fprintf(stderr, "\r%s [%d/%d]", progress_bar, i, PERCENT_MAX);
+        fprintf(stderr, "\r%-100s [%d/%d]", progress_bar, i, PERCENT_MAX);
 
         progress_bar[i] = '=';
         progress_bar[i + 1] = '>';
